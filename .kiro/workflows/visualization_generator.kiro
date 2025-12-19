@@ -1,0 +1,57 @@
+# Digital Detox Weaver – Visualization Generator Workflow
+# Step 4: Design visualizations for dashboard
+
+workflow:
+  name: "Visualization Generator"
+  version: "1.0"
+  description: "Generate visualization specs for 8 dashboard tabs"
+
+steps:
+  - step: 4
+    name: "Visualization Design"
+    agent: "VisualizationExpertAgent"
+    action: "Call llm_router with visualization prompt"
+    output_file: "outputs/04_visualization_design.md"
+    tabs: 8
+    
+    tab_specs:
+      - tab: 1
+        name: "Global Overview"
+        charts: ["KPI cards", "time-series", "world heatmap"]
+      
+      - tab: 2
+        name: "Age Analysis"
+        charts: ["vulnerability curve", "stacked bar", "risk hierarchy"]
+      
+      - tab: 3
+        name: "Platforms"
+        charts: ["bubble chart", "ranked bar", "comparison matrix"]
+      
+      - tab: 4
+        name: "Mechanisms"
+        charts: ["4-panel subplots", "pathway diagrams"]
+      
+      - tab: 5
+        name: "Disease Timelines"
+        charts: ["multi-line chart", "trend acceleration"]
+      
+      - tab: 6
+        name: "SES Inequality"
+        charts: ["side-by-side comparison", "inequality trends"]
+      
+      - tab: 7
+        name: "Detox Effects"
+        charts: ["recovery curves", "before/after delta"]
+      
+      - tab: 8
+        name: "Policy & Report"
+        charts: ["effectiveness ranking", "timeline", "cost-benefit"]
+
+design_principles:
+  - "Modern, clean aesthetic (Plotly + Streamlit theming)"
+  - "WCAG AA accessibility (4.5:1 contrast minimum)"
+  - "Responsive design (mobile-friendly)"
+  - "Interactive elements (hover, filter, toggle)"
+
+timeline:
+  estimated_total: "3-5 minutes"

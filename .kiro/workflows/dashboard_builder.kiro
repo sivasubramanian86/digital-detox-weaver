@@ -1,0 +1,119 @@
+# Digital Detox Weaver – Dashboard Builder Workflow
+# Orchestrates end-to-end data generation, analysis, and dashboard deployment
+
+workflow:
+  name: "Dashboard Builder"
+  version: "1.0"
+  description: "Complete pipeline: SOURCE 1 data → SOURCE 2 AI analysis → SOURCE 3/4 dashboard"
+
+steps:
+  - step: 1
+    name: "Initialize Project"
+    agent: "DataAnalystAgent"
+    source_output: "SOURCE 2"
+    description: "Define research questions, hypotheses, methodology"
+    output_file: "01_initialization.md"
+    streaming: true
+
+  - step: 2
+    name: "Generate Data (SOURCE 1)"
+    agent: "DataGeneratorModule"
+    source_output: "SOURCE 1"
+    description: "Generate 800+ epidemiological records across 8 datasets"
+    datasets: 8
+    records_total: 800
+    reproducible: "seed=42"
+
+  - step: 3
+    name: "Analyze Data"
+    agent: "DataAnalystAgent"
+    source_output: "SOURCE 2"
+    description: "Statistical analysis of SOURCE 1 data"
+    output_file: "03_analysis.md"
+    streaming: true
+
+  - step: 4
+    name: "Visualization Design (PARALLEL)"
+    agent: "VisualizationExpertAgent"
+    source_output: "SOURCE 2"
+    description: "Design 8 dashboard tabs with modern charts"
+    output_file: "04_visualization_design.md"
+    streaming: true
+
+  - step: 5
+    name: "Health Insights (PARALLEL)"
+    agent: "HealthResearcherAgent"
+    source_output: "SOURCE 2"
+    description: "Mechanistic pathways and evidence synthesis"
+    output_file: "05_health_insights.md"
+    streaming: true
+
+  - step: 6
+    name: "Dashboard Refresh"
+    agent: "StreamlitModule"
+    source_output: "SOURCE 3/4"
+    description: "Load SOURCE 1 data into Streamlit dashboard"
+    action: "app.py reads from data_generators.py"
+
+  - step: 7
+    name: "Policy Recommendations"
+    agent: "PolicyAdvisorAgent"
+    source_output: "SOURCE 2"
+    description: "3-phase policy pathway and interventions"
+    output_file: "06_policy_recommendations.md"
+    streaming: true
+
+  - step: 8
+    name: "Final Report"
+    agent: "HealthResearcherAgent"
+    source_output: "SOURCE 2"
+    description: "Comprehensive 3000+ word publication-ready report"
+    output_file: "FINAL_REPORT.md"
+    streaming: true
+
+  - step: 9
+    name: "Data Lineage Documentation"
+    agent: "OrchestratorModule"
+    source_output: "SOURCE 4"
+    description: "Document how all 4 sources integrated"
+    output_file: ".kiro/data_lineage.md"
+
+  - step: 10
+    name: "Finalization & Deployment"
+    agent: "OrchestratorModule"
+    source_output: "SOURCE 4"
+    description: "System ready for production, GitHub commit"
+    outputs_ready: true
+    dashboard_url: "http://localhost:8501"
+
+parallel_execution:
+  group_1: [4, 5]
+  description: "Visualization and health insights run in parallel"
+
+data_sources:
+  source_1:
+    name: "Epidemiological Data Generator"
+    location: "data_generators.py"
+    records: 800
+    reproducible: true
+  
+  source_2:
+    name: "AI-Generated Insights"
+    location: ".kiro/agents/"
+    agents: 4
+    output_words: 25000
+  
+  source_3:
+    name: "Dashboard & Visualization Code"
+    location: "app.py, visualizations.py"
+    files: 2
+  
+  source_4:
+    name: "Orchestration Framework"
+    location: ".kiro/, kiro_main.py"
+    components: 5
+
+timeline:
+  estimated_total: "25-30 minutes"
+  steps_parallel: [4, 5]
+  steps_sequential: [1, 2, 3, 6, 7, 8, 9, 10]

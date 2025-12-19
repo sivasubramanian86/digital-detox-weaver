@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - pip install --upgrade pip
+        - pip install -r requirements.txt
+    build:
+      commands:
+        - echo "Build phase completed"
+        - python data_generators.py
+    postBuild:
+      commands:
+        - echo "Starting Streamlit application"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - ~/.cache/pip/**/*

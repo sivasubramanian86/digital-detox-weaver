@@ -1,0 +1,23 @@
+{
+  "name": "digital-detox-weaver",
+  "version": "1.0.0",
+  "description": "Production-ready platform for multi-source epidemiological data analysis and AI-powered health insights",
+  "main": "api/streamlit.py",
+  "scripts": {
+    "dev": "streamlit run app.py",
+    "build": "echo 'Build completed'",
+    "start": "streamlit run app.py --server.port=$PORT --server.address=0.0.0.0"
+  },
+  "keywords": [
+    "streamlit",
+    "health-analytics",
+    "ai-powered",
+    "data-visualization",
+    "digital-detox"
+  ],
+  "author": "Digital Detox Weaver Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.x"
+  }
+}

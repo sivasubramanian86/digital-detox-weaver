@@ -1,0 +1,23 @@
+# Digital Detox Weaver – Data Analyzer Workflow
+# Quick workflow for steps 2-3: data generation and analysis only
+
+workflow:
+  name: "Data Analyzer"
+  version: "1.0"
+  description: "Generate SOURCE 1 data and run statistical analysis"
+
+steps:
+  - step: 2
+    name: "Generate Data (SOURCE 1)"
+    agent: "DataGeneratorModule"
+    action: "python data_generators.py"
+    output: "In-memory pandas DataFrames"
+
+  - step: 3
+    name: "Analyze Data"
+    agent: "DataAnalystAgent"
+    action: "Call llm_router with analysis prompt"
+    output_file: "outputs/03_analysis.md"
+
+timeline:
+  estimated_total: "5-10 minutes"

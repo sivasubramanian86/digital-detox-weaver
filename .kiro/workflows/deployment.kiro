@@ -1,0 +1,43 @@
+# Digital Detox Weaver – Deployment Workflow
+# Steps 9-10: Data lineage documentation and final checks
+
+workflow:
+  name: "Deployment"
+  version: "1.0"
+  description: "Finalize, document, and prepare for GitHub/production"
+
+steps:
+  - step: 9
+    name: "Data Lineage Documentation"
+    action: "Generate .kiro/data_lineage.md"
+    content:
+      - "SOURCE 1 → SOURCE 3/4 → SOURCE 2 flow diagram"
+      - "Data transformations at each step"
+      - "Quality checks and validation"
+      - "Reproducibility verification"
+
+  - step: 10
+    name: "Finalization Checks"
+    actions:
+      - "Verify all outputs generated"
+      - "Check dashboard renders at http://localhost:8501"
+      - "Confirm .gitignore tracking .kiro/ folder"
+      - "Validate .env.local excluded from git"
+      - "Test git add/commit workflow"
+    
+    final_checklist:
+      - "All 8 output files present"
+      - "Dashboard loads without errors"
+      - ".kiro/ folder tracked by git"
+      - "Secrets (.env.local) in .gitignore"
+      - "requirements.txt and requirements-kiro.txt updated"
+      - "README.md with setup instructions"
+      - "Code formatted and documented"
+      - "Ready for GitHub push"
+
+deployment_readiness:
+  structure_valid: true
+  code_quality: "production-grade"
+  documentation: "comprehensive"
+  github_ready: true
+  kiro_challenge_ready: true

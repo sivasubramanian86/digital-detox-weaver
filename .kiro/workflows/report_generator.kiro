@@ -1,0 +1,51 @@
+# Digital Detox Weaver – Report Generator Workflow
+# Steps 5, 7, 8: Health insights, policy, final report
+
+workflow:
+  name: "Report Generator"
+  version: "1.0"
+  description: "Generate comprehensive reports (insights, policy, final)"
+
+steps:
+  - step: 5
+    name: "Health Insights"
+    agent: "HealthResearcherAgent"
+    action: "Call llm_router with insight prompt"
+    output_file: "outputs/05_health_insights.md"
+    content:
+      - "Causal mechanisms"
+      - "Age vulnerability pathways"
+      - "Biological plausibility"
+      - "Reversibility evidence"
+      - "SES-mediated pathways"
+      - "Platform-specific harms"
+
+  - step: 7
+    name: "Policy Recommendations"
+    agent: "PolicyAdvisorAgent"
+    action: "Call llm_router with policy prompt"
+    output_file: "outputs/06_policy_recommendations.md"
+    content:
+      - "Intervention ranking"
+      - "3-phase implementation"
+      - "Cost-benefit analysis"
+      - "Equity considerations"
+
+  - step: 8
+    name: "Final Report"
+    agent: "HealthResearcherAgent"
+    action: "Synthesize all analyses into comprehensive report"
+    output_file: "outputs/FINAL_REPORT.md"
+    target_length: "3000+ words"
+    sections:
+      - "Executive Summary"
+      - "Introduction"
+      - "Methods"
+      - "Results (Global, Age, Mechanisms)"
+      - "Policy Recommendations"
+      - "Discussion"
+      - "Conclusion"
+      - "References (30+)"
+
+timeline:
+  estimated_total: "10-15 minutes"

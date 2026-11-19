@@ -1,3 +1,8 @@
+> [!NOTE]
+> **OFFICIAL PORTFOLIO SHOWCASE BY SIVASUBRAMANIAN**  
+> **Original Author:** [Sivasubramanian](https://github.com/sivasubramanian86)  
+> *This repository is an open portfolio showcase. Unauthorized cloning, re-hosting, or submission to hackathons/competitions under another name is strictly prohibited.*
+
 # 🧵 Digital Detox Weaver
 
 **Production-ready platform for multi-source epidemiological data analysis and AI-powered health insights.**
